@@ -13,7 +13,8 @@ const boaz="boaz";
 app.get("/", function (req, res) {
 
     //const day = date.getDate();
-    res.render("list", { boaz: boaz });
+    res.sendFile(__dirname+"/public/index.html");
+    //res.render("list", { boaz: boaz });
   
   });
 
