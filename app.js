@@ -13,7 +13,9 @@ app.use(express.static("public"));
 app.get("/", function (req, res) {
 
     //const day = date.getDate();
-    res.sendFile(__dirname+"/public/index.html");
+    res.write("hii");
+    res.send();
+
     //res.render("list", { boaz: boaz });
   
   });
