@@ -7,9 +7,9 @@ const app =express();
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
-const boaz="boaz";
+//app.set('views', path.join(__dirname, 'views'));
+//app.set('view engine', 'ejs');
+//const boaz="boaz";
 app.get("/", function (req, res) {
 
     //const day = date.getDate();
