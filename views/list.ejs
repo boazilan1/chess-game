@@ -1,0 +1,27 @@
+<%- include("header") -%>
+
+
+<form action="/" method="post" id="myForm">
+  <table>
+    <% Board.forEach(row=>{ %>
+      <tr>
+      <% row.forEach(Piece=>{ %>        
+        <% if (Piece!=null) { %>
+          
+          <td  id="<%= Piece.position%>"  class="<%= cls %> <%= Piece.tipey %> <%= Piece.color %> <%= Piece.move %>"> </td>
+        <% } %>
+
+        <% if (cls=="wait_box") {cls="black_box"}else{cls="wait_box"} %>
+
+      <% }); %>
+      <% if (cls=="wait_box") {cls="black_box"}else{cls="wait_box"} %>
+      <tr>
+    <% }); %>
+ 
+  </table>
+ 
+</form>
+  <h1 id="turn" class="<%=turn %>"><%=turn %></h1>
+  <h1 id="chess"></h1>
+  <script src="logic/index.js"></script>
+  <%- include("footer") -%>
