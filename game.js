@@ -98,7 +98,7 @@ exports.Ob_game = class {
 exports.Game_tree = class {
 
     constructor(player_turn, board, Ob_game, profit = null, parent = null, state = null, Childrens = []) {
-        this.Number_of_layers = 5;
+        this.Number_of_layers = 6;
         this.Ob_game = Ob_game;
         this.board = board;
         this.root = new games.Node(this.Ob_game, player_turn, null, null, 1, parent, 0, state, Childrens);
