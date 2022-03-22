@@ -63,10 +63,10 @@ table {
 
 /*-------------------part of the -------------------*/
 .black_box{
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(235, 70, 64);
 }
 .wait_box{
-    background-color: rgb(206, 233, 205);
+    background-color: rgb(173, 140, 155);
 }
 
 .peec{
@@ -77,82 +77,82 @@ table {
 
 
 .can_go{      
-    background-color: red;
+    background-color: rgb(32, 243, 50);
 }
 /*-------------------game objects-----------------*/
 
 
 .black.Pawn{
-  background-image:url("/imges/black_pwond.jpg");
+  background-image:url("/imges/black_picec/black_pwond.png");
   background-repeat:no-repeat;
   background-size:40px 40px;
   background-position: center;
 }
 
 .black.Bishop{
-  background-image:url("/imges/Black_Bishop.jpg");
+  background-image:url("/imges/black_picec/Black_Bishop.png");
   background-repeat:no-repeat;
   background-size:40px 40px;
   background-position: center;
 }
 .black.Knight{
-  background-image:url("/imges/Black_Knight.jpg");
+  background-image:url("/imges/black_picec/Black_Knight.png");
   background-repeat:no-repeat;
   background-size:40px 40px;
   background-position: center;
 }
 .black.Rook{
-  background-image:url("/imges/Black_Rook.jpg");
+  background-image:url("/imges/black_picec/Black_Rook.png");
   background-repeat:no-repeat;
   background-size:40px 40px;
   background-position: center;
 }
 .black.King{
-  background-image:url("/imges/Black_King.jpg");
+  background-image:url("/imges/black_picec/Black_King.png");
   background-repeat:no-repeat;
   background-size:40px 40px;
   background-position: center;
 }
 .black.Queen{
-  background-image:url("/imges/Black_Queen.jpg");
+  background-image:url("/imges/black_picec/Black_Queen.png");
   background-repeat:no-repeat;
   background-size:40px 40px;
   background-position: center;
 }
 
 .white.Pawn{
-  background-image:url("/imges/White_pwond.jpg");
+  background-image:url("/imges/white_picec/White_pwond.png");
   background-repeat:no-repeat;
   background-size:40px 40px;
   background-position: center;
 }
 
 .white.Bishop{
-  background-image:url("/imges/White_Bishop.jpg");
+  background-image:url("/imges/white_picec/White_Bishop.png");
   background-repeat:no-repeat;
   background-size:40px 40px;
   background-position: center;
 }
 .white.Knight{
-  background-image:url("/imges/White_Knight.jpg");
+  background-image:url("/imges/white_picec/White_Knight.png");
   background-repeat:no-repeat;
   background-size:40px 40px;
   background-position: center;
 }
 .white.Rook{
-  background-image:url("/imges/White_Rook.jpg");
+  background-image:url("/imges/white_picec/White_Rook.png");
   background-repeat:no-repeat;
   background-size:40px 40px;
   background-position: center;
 }
 .white.King{
-  background-image:url("/imges/White_King.jpg");
+  background-image:url("/imges/white_picec/White_King.png");
   background-repeat:no-repeat;
   background-size:40px 40px;
   background-position: center;
 }
 .white.Queen{
-  background-image:url("/imges/White_Queen.jpg");
+  background-image:url("/imges/white_picec/White_Queen.png");
   background-repeat:no-repeat;
   background-size:40px 40px;
   background-position: center;
