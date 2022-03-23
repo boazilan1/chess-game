@@ -17,11 +17,17 @@
       <% if (cls=="wait_box") {cls="black_box"}else{cls="wait_box"} %>
       <tr>
     <% }); %>
- 
   </table>
- 
+
+  <table>
+    <tr>
+      <td id="p1_b"></td><td id="p1_b"></td><td id="p1_b"></td><td id="p1_b"></td><td id="p1_b"></td><td id="p1_b"></td><td id="p1_b"></td><td id="p1_b"></td><td id="p1_b"></td><td id="p1_b"></td><td id="p1_b"></td><td id="p1_b"></td>
+      <td><h1 id="turn" class="<%=turn %>"><%=turn %></h1></td>
+      <td><h1 id="chess"></h1></td>
+    </tr>
+  </table>
+
 </form>
-  <h1 id="turn" class="<%=turn %>"><%=turn %></h1>
-  <h1 id="chess"></h1>
+ 
   <script src="logic/index.js"></script>
   <%- include("footer") -%>

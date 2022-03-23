@@ -98,7 +98,7 @@ exports.Ob_game = class {
 exports.Game_tree = class {
 
     constructor(player_turn, board, Ob_game, profit = null, parent = null, state = null, Childrens = []) {
-        this.Number_of_layers = 6;
+        this.Number_of_layers = 5;
         this.Ob_game = Ob_game;
         this.board = board;
         this.root = new games.Node(this.Ob_game, player_turn, null, null, 1, parent, 0, state, Childrens);
@@ -201,29 +201,29 @@ exports.Game_tree = class {
             Children.max=Children.profit
         }      
         if(parent.player_turn.color==max_collor){        
-            if (parent.max <= Children.max|| parent.max == null ||Children.state=="chess maty") {
-                if (parent.max < Children.max || parent.max == null || parent.min_max_node.number_of_moves <= Children.number_of_moves|| Children.state == "chess maty" ){
-                    if (parent.state != "chess maty") {
+            if (parent.max <= Children.max|| parent.max == null ) {
+                if (parent.max < Children.max || parent.max == null ){
+                    //if (parent.state != "chess maty") {(parent.min_max_node.number_of_moves <= Children.number_of_moves && parent.max == Children.max)
                         parent.max = Children.max;
                         parent.min_max_node = Children;
-                        parent.state=Children.state;
-                        return true
-                    }
+                        
+                        return 
+                    //}
                 }
             }
         } else {
             if (parent.max >= Children.max|| parent.max == null) {
-                if ((parent.max > Children.max  || parent.min_max_node.number_of_moves <= Children.number_of_moves) || (Children.state != "chess maty"|| parent.max == null)) {
+                if ((parent.max > Children.max || parent.max == null )) {
                     //if (parent.state != "chess maty") {
                         parent.max = Children.max;
                         parent.min_max_node = Children;
-                        parent.state=Children.state;
-                        return true
+                        
+                        return 
                     //}
                 }
             }
         }
-        return false;       
+        return        
     }
 
     min_max_move(node) {
