@@ -1,6 +1,6 @@
 README
 
-Play chess against the software.
+Play chess against the software.  
 A chess game that calculates a few steps ahead.
 
 Steps to run the game:
