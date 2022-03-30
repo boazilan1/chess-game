@@ -3,12 +3,11 @@ img{
     width: 150px;
 }
 html {
-    background-color: #2743b4;
-    background-image: -webkit-linear-gradient(65deg, #c478ba 50%, #c3ca5a 50%);
+    background-color: #74dbe0;
+    /* background-image: -webkit-linear-gradient(65deg, #f5d4f0 50%, #3c3d2a 50%); */
     min-height: 1000px;
     font-family: 'helvetica neue';
   }
- 
   p {
     margin: 0;
     padding: 20px;
@@ -17,8 +16,6 @@ html {
     color: #00204a;
     text-align: center;
   }
-
-
 hr{
     background-color: rgb(179, 236, 217);
     align-items: center;
@@ -69,9 +66,19 @@ table {
     height: 40px;  
     width: 40px;
 }
-
 .can_go{      
     background-color: rgb(32, 243, 50);
+}
+.sideBox{
+    background-color: rgb(203, 39, 224);
+    align-items: center;
+    border: 1px solid rgb(0, 0, 0);
+    height: 50px;  
+    width: 50px;
+}
+.sideBoxText{
+  font-size: 15px;
+
 }
 /*-------------------game objects-----------------*/
 

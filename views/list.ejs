@@ -1,33 +1,52 @@
 <%- include("header") -%>
+  <!-- <table>
+  <tr>
+    <td id="p1_b"></td><td id="p1_b"></td><td id="p1_b"></td><td id="p1_b"></td><td id="p1_b"></td><td id="p1_b"></td><td id="p1_b"></td><td id="p1_b"></td><td id="p1_b"></td><td id="p1_b"></td><td id="p1_b"></td><td id="p1_b"></td>
+    <tr>
+    <td><h1 id="turn" class="<%=turn %>"><%=turn %></h1></td>
+    <td><h1 id="chess"></h1></td>
+  </tr>
+  </tr>
+</table> -->
+  <!-- <h1 id="moves">moves:</h1> -->
+  <form action="/" method="post" id="myForm">
+    <table>
+      <% Board.forEach(row=>{ %>
+        <tr>
+          <% row.forEach(Piece=>{ %>
+            <% if (Piece!=null) { %>
 
+              <td id="<%= Piece.position%>" class="<%= cls %> <%= Piece.tipey %> <%= Piece.color %> <%= Piece.move %>">
+              </td>
+              <% } %>
 
-<form action="/" method="post" id="myForm">
+                <% if (cls=="wait_box" ) {cls="black_box" }else{cls="wait_box" } %>
+
+                  <% }); %>
+                    <% if (cls=="wait_box" ) {cls="black_box" }else{cls="wait_box" } %>
+        <tr>
+          <% }); %>
+    </table>
   <table>
-    <% Board.forEach(row=>{ %>
-      <tr>
-      <% row.forEach(Piece=>{ %>        
-        <% if (Piece!=null) { %>
-          
-          <td  id="<%= Piece.position%>"  class="<%= cls %> <%= Piece.tipey %> <%= Piece.color %> <%= Piece.move %>"> </td>
-        <% } %>
-
-        <% if (cls=="wait_box") {cls="black_box"}else{cls="wait_box"} %>
-
-      <% }); %>
-      <% if (cls=="wait_box") {cls="black_box"}else{cls="wait_box"} %>
-      <tr>
-    <% }); %>
+    <tr>
+      <td class="sideBox">
+        <h1 id="chess" class="sideBoxText"></h1>
+      </td>
+      <td class="sideBox">
+        <h1 id="turn" class="<%=turn %> sideBoxText">
+          <%=turn %>
+      </td>
+    </tr>
   </table>
-
-  <table>
+    <!-- <table>
     <tr>
       <td id="p1_b"></td><td id="p1_b"></td><td id="p1_b"></td><td id="p1_b"></td><td id="p1_b"></td><td id="p1_b"></td><td id="p1_b"></td><td id="p1_b"></td><td id="p1_b"></td><td id="p1_b"></td><td id="p1_b"></td><td id="p1_b"></td>
       <td><h1 id="turn" class="<%=turn %>"><%=turn %></h1></td>
       <td><h1 id="chess"></h1></td>
     </tr>
-  </table>
+  </table> -->
 
-</form>
- 
+  </form>
+
   <script src="logic/index.js"></script>
   <%- include("footer") -%>

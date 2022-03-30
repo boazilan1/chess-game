@@ -18,9 +18,7 @@ exports.Ob_game = class {
 
     }
 
-
     move(Piece_from = [0, 0], Piece_to = [0, 0]) {
-
         this.Change_turn()
         let picec_from = [Piece_from[0], Piece_from[2]]
         let picec_to = [Piece_to[0], Piece_to[2]]
@@ -98,7 +96,7 @@ exports.Ob_game = class {
 exports.Game_tree = class {
 
     constructor(player_turn, board, Ob_game, profit = null, parent = null, state = null, Childrens = []) {
-        this.Number_of_layers = 5;
+        this.Number_of_layers = 6;
         this.Ob_game = Ob_game;
         this.board = board;
         this.root = new games.Node(this.Ob_game, player_turn, null, null, 1, parent, 0, state, Childrens);
@@ -108,7 +106,6 @@ exports.Game_tree = class {
         
         console.log("--------------finise")
     }
-
     add_layer(node, layer, num) {
 
         if (layer == num) {
@@ -171,19 +168,10 @@ exports.Game_tree = class {
 
     }
     number_of_moves(moves, tipey) {
-
-        return moves.length;
-        // let temp = 0;
-        // if (tipey != "Bishop" && tipey != "Rook" && tipey != "Queen" && moves != undefined) {
-        //     return moves.length;
-        // } else {
-        //     for (let m_1 = 0; m_1 < moves.length; m_1++) {
-        //         temp += moves[m_1].length
-        //     }
-        // }
-        // return temp;
+        return moves.length;        
     }
     need_to_add_layer(parent, Children , max_collor){
+        if(Children.state=="chess maty") return false;
         if(parent.player_turn.color==max_collor){        
             if (parent.max <= Children.max) {              
             return true        
@@ -195,15 +183,16 @@ exports.Game_tree = class {
         }
         return false;
     }
-    utility(parent, Children,max_collor) {
+    utility(parent, Children, max_collor) {
 
         if(Children.max==null){
             Children.max=Children.profit
         }      
         if(parent.player_turn.color==max_collor){        
             if (parent.max <= Children.max|| parent.max == null ) {
-                if (parent.max < Children.max || parent.max == null ){
-                    //if (parent.state != "chess maty") {(parent.min_max_node.number_of_moves <= Children.number_of_moves && parent.max == Children.max)
+                
+                if (parent.max < Children.max || parent.max == null ||(parent.min_max_node.number_of_moves > Children.number_of_moves && parent.max == Children.max && Children.Number_of_layer+1!=this.Number_of_layers) ){
+                    //if (Children.state != "chess maty"){// {(parent.min_max_node.number_of_moves <= Children.number_of_moves && parent.max == Children.max)
                         parent.max = Children.max;
                         parent.min_max_node = Children;
                         
@@ -213,8 +202,9 @@ exports.Game_tree = class {
             }
         } else {
             if (parent.max >= Children.max|| parent.max == null) {
-                if ((parent.max > Children.max || parent.max == null )) {
-                    //if (parent.state != "chess maty") {
+            
+                if ((parent.max > Children.max || parent.max == null ||(parent.min_max_node.number_of_moves > Children.number_of_moves && parent.max == Children.max&&Children.Number_of_layer+1!=this.Number_of_layers))) {
+                    //if (Children.state != "chess maty") {
                         parent.max = Children.max;
                         parent.min_max_node = Children;
                         
@@ -225,7 +215,6 @@ exports.Game_tree = class {
         }
         return        
     }
-
     min_max_move(node) {
         //console.log(node.Childrens)
         if (node.Childrens.length == 0) {
@@ -303,12 +292,12 @@ exports.Node = class {
 
         if (this.position_to != null) {
 
-            // if (this.Castling == 1) {
-            //     if(this.position_to==[0,1]) this.Piece_to_rook = this.Ob_game.copy_Piece_from_position([0,2]);
-            //     if(this.position_to==[0,5]) this.Piece_to_rook = this.Ob_game.copy_Piece_from_position([0,4]);
-            //     if(this.position_to==[7,1]) this.Piece_to_rook = this.Ob_game.copy_Piece_from_position([7,2]);
-            //     if(this.position_to==[7,5]) this.Piece_to_rook = this.Ob_game.copy_Piece_from_position([7,4]);
-            // } 
+            if (this.Castling == 1) {
+                if(this.position_to==[0,1]) this.Piece_to_rook = this.Ob_game.copy_Piece_from_position([0,2]);
+                if(this.position_to==[0,5]) this.Piece_to_rook = this.Ob_game.copy_Piece_from_position([0,4]);
+                if(this.position_to==[7,1]) this.Piece_to_rook = this.Ob_game.copy_Piece_from_position([7,2]);
+                if(this.position_to==[7,5]) this.Piece_to_rook = this.Ob_game.copy_Piece_from_position([7,4]);
+            } 
 
             this.Piece_to = this.Ob_game.copy_Piece_from_position(this.position_to);
             this.move_forward();
@@ -529,8 +518,7 @@ exports.Board = class {
         let to = this.get_Piece_from_position(position_to);
         if(from.tipey=="Pawn"){
             
-            if((to.position[0]==7 && from.im_white()) || (to.position[0]==0 && from.im_black())){
-                console.log(from,to.position)
+            if((to.position[0]==0 && from.im_white()) || (to.position[0]==7 && from.im_black())){
                 to.tipey="Queen";
                 to.score=10;
                 to.color = from.color;

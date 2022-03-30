@@ -25,7 +25,11 @@ function moving_from_Outside(position_form,position_to){
 
     let from= document.getElementById(next_pos1);
     let to= document.getElementById(next_pos2);
-   
+    
+    // const chess = document.getElementById("moves");
+    // chess.textContent += "[ "+position_from_Piece(from)+" to ";
+    // chess.textContent += position_from_Piece(to)+"] ";
+
     move_Piece_to_here(from, to);
     turn.classList.toggle("White");
     turn.classList.toggle("Black");
@@ -45,6 +49,11 @@ function place_togo() {
     var turn = document.getElementById("turn");
     this_is_me = this;
     if (this.classList.contains("can_go")) {
+
+        // const chess = document.getElementById("moves");
+        // chess.textContent += "[ "+position_from_Piece(Wants_to_move)+" to ";
+        // chess.textContent += position_from_Piece(this)+"] ";
+
         move_Piece_to_here(Wants_to_move, this);
         turn.classList.toggle("White");
         turn.classList.toggle("Black");
